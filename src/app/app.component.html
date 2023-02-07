@@ -3,28 +3,32 @@
   <form [formGroup]="interesCompuestoForm">
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Inversión Inicial</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="inversionInicial">
+      <input matInput type="number" min="1000" class="example-right-align" placeholder="Mayor o igual a 1000" formControlName="inversionInicial">
     </mat-form-field>
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Aportación Anual</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="aportacionAnual">
+      <input matInput type="number" class="example-right-align" min="0" placeholder="Mayor o igual a 0" formControlName="aportacionAnual">
     </mat-form-field>
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Incremento Anual</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="incrementoAnual">
+      <input matInput type="number" class="example-right-align" placeholder="Mayor o igual a 0" formControlName="incrementoAnual">
     </mat-form-field>
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>Años de Inversión</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="anosInversion">
+      <input matInput type="number" class="example-right-align" min="1" placeholder="Mayor a 0" formControlName="anosInversion">
     </mat-form-field>
     <mat-form-field appearance="fill" floatLabel="always">
       <mat-label>% Rendimiento</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="rendimiento">
+      <input matInput type="number" class="example-right-align" min="1" placeholder="Mayor a 0" formControlName="rendimiento">
     </mat-form-field>
     <button mat-button color="primary" (click)="calcular()" >Calcular</button>
   </form>
 </div>
 <div>
+  <div class="error">
+  {{error}}
+</div>
+  <br>
   Ganacia por inversión : {{gananciaInversion}}
   <br>
   Monto Final: {{montoFinal}}
